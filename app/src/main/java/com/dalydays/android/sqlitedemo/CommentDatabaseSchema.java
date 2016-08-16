@@ -5,7 +5,7 @@ package com.dalydays.android.sqlitedemo;
  */
 public class CommentDatabaseSchema {
     public final class CommentTable {
-        public static final String NAME = "tableName";
+        public static final String NAME = "comments";
 
         public final class Cols {
             public static final String UUID = "uuid";

@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Comment To Database"
-        android:onClick="addCommentButtonClick"/>
+        android:id="@+id/add_button"/>
 
     <ListView
         android:layout_width="wrap_content"

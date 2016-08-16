@@ -19,11 +19,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create database " + CommentTable.NAME + "(" +
+        db.execSQL("create table " + CommentTable.NAME + "(" +
                     "_id integer primary key autoincrement, " +
-                    CommentTable.Cols.UUID +
-                    CommentTable.Cols.TITLE +
-                    CommentTable.Cols.COMMENT +
+                    CommentTable.Cols.UUID + ", " +
+                    CommentTable.Cols.TITLE + ", " +
+                    CommentTable.Cols.COMMENT + ", " +
                     CommentTable.Cols.DATE +
                     ");");
     }
