@@ -37,14 +37,16 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener addButtonListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // Open the database for read/write
+                db = new DatabaseHelper(MainActivity.this).getWritableDatabase();
+                db.insert(CommentTable.NAME, null, getContentValues());
+                db.close();
+                titleEditText.setText("");
+                commentEditText.setText("");
                 Toast.makeText(getApplicationContext(), "Added to database", Toast.LENGTH_SHORT).show();
             }
         };
         addButton.setOnClickListener(addButtonListener);
-
-
-        // Open the database for read/write
-        db = new DatabaseHelper(this).getWritableDatabase();
     }
 
     private ContentValues getContentValues() {
@@ -56,12 +58,5 @@ public class MainActivity extends AppCompatActivity {
         values.put(CommentTable.Cols.DATE, new Date().toString());
 
         return values;
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        db.close();
     }
 }
