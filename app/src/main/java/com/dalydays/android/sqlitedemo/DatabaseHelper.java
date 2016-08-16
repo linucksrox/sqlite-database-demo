@@ -18,7 +18,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL("create database " + DatabaseSchema.DatabaseTable.NAME + "(" +
+                    "_id integer primary key autoincrement, " +
+                    DatabaseSchema.DatabaseTable.Cols._ID +
+                    //
+                    //
+                    ");");
     }
 
     @Override
