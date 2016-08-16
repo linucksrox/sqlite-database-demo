@@ -3,6 +3,7 @@ package com.dalydays.android.sqlitedemo;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import com.dalydays.android.sqlitedemo.CommentDatabaseSchema.CommentTable;
 
 /**
  * Created by eric on 8/15/16.
@@ -10,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final int VERSION = 1;
-    private static final String DATABASE_NAME = "myDatabase.db";
+    private static final String DATABASE_NAME = "commentDatabase.db";
 
     DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
@@ -18,11 +19,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create database " + DatabaseSchema.DatabaseTable.NAME + "(" +
+        db.execSQL("create database " + CommentTable.NAME + "(" +
                     "_id integer primary key autoincrement, " +
-                    DatabaseSchema.DatabaseTable.Cols._ID +
-                    //
-                    //
+                    CommentTable.Cols.UUID +
+                    CommentTable.Cols.TITLE +
+                    CommentTable.Cols.COMMENT +
+                    CommentTable.Cols.DATE +
                     ");");
     }
 
