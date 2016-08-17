@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
                 db = new DatabaseHelper(MainActivity.this).getWritableDatabase();
                 db.insert(CommentTable.NAME, null, getContentValues());
                 db.close();
-                titleEditText.setText("");
                 commentEditText.setText("");
+                titleEditText.setText("");
+                titleEditText.requestFocus();
                 Toast.makeText(getApplicationContext(), "Added to database", Toast.LENGTH_SHORT).show();
             }
         };
